@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +12,7 @@
     class="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-blue-200 dark:from-gray-900 dark:to-gray-800"
   >
     <form
+      autocomplete="off"
       action="/user/register"
       method="post"
       class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8 w-full max-w-sm space-y-5"
@@ -28,12 +31,12 @@
           >Username</label
         >
         <input
-        name="username"
+          name="username"
           type="text"
           id="username"
           placeholder="Enter your username"
           required
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          class="w-full outline-none px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         />
       </div>
 
@@ -47,10 +50,11 @@
         <input
           type="email"
           name="email"
+          autocomplete="off"
           id="email"
           placeholder="you@example.com"
           required
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          class="w-full outline-none px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         />
       </div>
 
@@ -67,7 +71,7 @@
           name="password"
           placeholder="••••••••"
           required
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          class="w-full px-4 outline-none py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         />
       </div>
 
