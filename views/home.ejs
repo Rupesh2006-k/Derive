@@ -1,0 +1,135 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="p-5 bg-gradient-to-br from-green-50 to-emerald-100">
+
+    <!-- Top Buttons -->
+    <div class="flex gap-3">
+      <button
+        onclick="showPopUp()"
+        class="px-5 py-2 bg-emerald-600 text-white rounded-lg shadow hover:bg-emerald-700 transition"
+      >
+        Upload
+      </button>
+
+      <a
+        href="/login"
+        class="px-5 py-2 bg-emerald-600 text-white rounded-lg shadow hover:bg-emerald-700 transition"
+      >
+        Back to Login
+      </a>
+    </div>
+
+    <!-- Upload Popup -->
+    <div
+      class="pop hidden h-screen w-full bg-black/40 backdrop-blur-sm fixed top-0 left-0 flex justify-center items-center z-50"
+    >
+      <!-- Close Button -->
+      <button
+        class="absolute right-6 top-6 text-white hover:text-red-400 text-2xl transition"
+        onclick="hidePopUp()"
+      >
+        <i class="ri-close-line"></i>
+      </button>
+
+      <!-- Form Box -->
+      <form
+        action="/upload-file"
+        method="post"
+        enctype="multipart/form-data"
+        class="bg-white p-6 rounded-2xl shadow-xl w-[330px] border border-emerald-200"
+      >
+        <h2 class="text-xl font-semibold mb-3 text-center text-emerald-700">
+          Upload File
+        </h2>
+
+        <label
+          for="dropzone-file"
+          class="flex flex-col items-center justify-center w-full h-60 bg-emerald-50 border-2 border-dashed border-emerald-300 rounded-xl cursor-pointer hover:border-emerald-500 hover:bg-emerald-100 transition"
+        >
+          <div class="text-center px-3">
+            <i class="ri-upload-cloud-2-line text-4xl mb-3 text-emerald-700"></i>
+            <p class="text-sm mb-1">
+              <span class="font-semibold">Click to upload</span> or drag & drop
+            </p>
+            <p class="text-xs text-emerald-600">
+              PNG, JPG, SVG, GIF supported
+            </p>
+          </div>
+
+          <input id="dropzone-file" name="file" type="file" class="hidden" />
+        </label>
+
+        <button
+          class="mt-5 w-full py-2 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition"
+        >
+          Upload File
+        </button>
+      </form>
+    </div>
+
+    <!-- Files Grid -->
+    <div
+      class="files mt-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+    >
+      <% files.forEach(file => { %>
+      <div
+        class="bg-white rounded-xl shadow border border-emerald-200 hover:shadow-lg transition p-4"
+      >
+        <% if (file.mimetype && file.mimetype.startsWith("image")) { %>
+        <img
+          src="<%= file.url %>"
+          alt="Uploaded Image"
+          class="w-full h-48 object-cover rounded-lg mb-3"
+        />
+        <% } else { %>
+        <div
+          class="w-full h-48 flex items-center justify-center bg-emerald-50 rounded-lg mb-3"
+        >
+          <i class="ri-file-3-fill text-5xl text-emerald-600"></i>
+        </div>
+        <% } %>
+
+        <h1 class="font-semibold text-gray-800"><%= file.originalName %></h1>
+
+        <a
+          target="_blank"
+          href="<%= file.path %>"
+          class="mt-3 inline-block text-white bg-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-700 transition"
+        >
+          Open <i class="ri-arrow-right-up-line"></i>
+        </a>
+
+        <a
+          class="mt-3 inline-block text-white bg-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-700 transition"
+          target="_blank"
+          href="/download/<%= file._id %>"
+        >
+          Download
+        </a>
+      </div>
+      <% }) %>
+    </div>
+
+    <script>
+      function showPopUp() {
+        document.querySelector(".pop").style.display = "flex";
+      }
+      function hidePopUp() {
+        document.querySelector(".pop").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

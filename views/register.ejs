@@ -6,28 +6,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Simple Form</title>
+    <title>Register</title>
   </head>
+
   <body
-    class="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-blue-200 dark:from-gray-900 dark:to-gray-800"
+    class="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-50 to-emerald-100"
   >
     <form
       autocomplete="off"
-      action="/user/register"
+      action="/register"
       method="post"
-      class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8 w-full max-w-sm space-y-5"
+      class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-sm space-y-6 border border-green-100"
     >
-      <h2
-        class="text-2xl font-bold text-center text-gray-800 dark:text-gray-100"
-      >
-        Register Form
+      <h2 class="text-2xl font-bold text-center text-emerald-700">
+        Register
       </h2>
 
       <!-- Username -->
       <div>
         <label
           for="username"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200"
+          class="block mb-2 text-sm font-medium text-gray-700"
           >Username</label
         >
         <input
@@ -36,7 +35,7 @@
           id="username"
           placeholder="Enter your username"
           required
-          class="w-full outline-none px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          class="w-full outline-none px-4 py-2 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-emerald-50/40 transition"
         />
       </div>
 
@@ -44,17 +43,16 @@
       <div>
         <label
           for="email"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200"
+          class="block mb-2 text-sm font-medium text-gray-700"
           >Email</label
         >
         <input
           type="email"
           name="email"
-          autocomplete="off"
           id="email"
           placeholder="you@example.com"
           required
-          class="w-full outline-none px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          class="w-full outline-none px-4 py-2 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-emerald-50/40 transition"
         />
       </div>
 
@@ -62,7 +60,7 @@
       <div>
         <label
           for="password"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200"
+          class="block mb-2 text-sm font-medium text-gray-700"
           >Password</label
         >
         <input
@@ -71,17 +69,24 @@
           name="password"
           placeholder="••••••••"
           required
-          class="w-full px-4 outline-none py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          class="w-full outline-none px-4 py-2 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-emerald-50/40 transition"
         />
       </div>
 
       <!-- Button -->
       <button
         type="submit"
-        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg shadow-sm focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition"
+        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-lg shadow-md focus:ring-4 focus:ring-emerald-300 transition"
       >
         Create Account
       </button>
+
+      <a
+        href="/login"
+        class="block text-center text-emerald-700 hover:underline"
+      >
+        ← Back to Login
+      </a>
     </form>
   </body>
 </html>
